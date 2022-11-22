@@ -1,0 +1,88 @@
+<!--pages/filter.wxml-->
+<view class="diningRoom">
+  <view class="restaurant" catchtap="onTapLeft">
+    <text class="title">选择餐厅▼</text>
+  </view>
+  <view class="restaurant" catchtap="onTapRight">
+    <text class="title">选择标签▼</text>
+  </view>
+</view>
+<view class="foil"></view>
+<block wx:for="{{initData}}" wx:for-item="item" wx:for-index="idx">
+<view class="restaurant-datail">
+  <view class="datail-top">
+    <image class="img" src="{{item.imgrest}}"></image>
+    <view class="diningName">
+      <view class="dining-datail">
+        <text class="text">{{item.restName}}</text>
+      </view>
+      <view class="dining-datail">
+        <text class="text">{{item.restAddress}}</text>
+      </view>
+      <view class="dining-datail">
+        <text class="text">{{item.restDetail}}</text>
+      </view>
+    </view>
+    <view class="collect">
+      <view class="collect-txt">
+        <text>评分</text>
+      </view>
+      <view class="img-wrap" catchtap="onTapCollect" data-restaurant-id='{{item.restaurantId}}'>
+         <image class="img-collect" wx:if="{{item.collection}}" src="cloud://soya-fzu-rice-0grey0qla568ff6f.736f-soya-fzu-rice-0grey0qla568ff6f-1314877683/images/star1.png"/>
+         <image class="img-collect" wx:else src="cloud://soya-fzu-rice-0grey0qla568ff6f.736f-soya-fzu-rice-0grey0qla568ff6f-1314877683/images/star.png"/>
+      </view>
+    </view>
+    <view class="dislike" catchtap="onTapDislike">
+      <image class="ico" src="cloud://soya-fzu-rice-0grey0qla568ff6f.736f-soya-fzu-rice-0grey0qla568ff6f-1314877683/images/Close_Circle.png"></image>
+    </view>
+
+    </view>
+  <view class="datail-bottom">
+    <block  wx:for="{{item.flavour}}" wx:for-item="item" wx:key='*this'>
+    <view class="flavour">
+      <text class="t">{{item}}</text>
+    </view>
+    </block>
+  </view>
+</view>
+</block>
+<view hidden="{{leftselected}}" class="placeholder"></view>
+
+<view hidden="{{leftselected}}" class="selectRoom">
+<view class="prompt">
+  <view class="label">
+    <text class="labeltxt">请选择你想要的餐厅</text>
+  </view>
+  <view class="cancel" catchtap="onTapLeftCancel">
+    <image class="ico" wx:if="{{nothingl}}" src="cloud://soya-fzu-rice-0grey0qla568ff6f.736f-soya-fzu-rice-0grey0qla568ff6f-1314877683/images/Close_Circle.png"></image>
+      <image class="ico" wx:else src="cloud://soya-fzu-rice-0grey0qla568ff6f.736f-soya-fzu-rice-0grey0qla568ff6f-1314877683/images/wx_icon_submit.png"></image>
+  </view>
+</view>
+<view class="whois">
+  <block wx:for="{{diningRooms}}" wx:for-item="item" wx:key="*this">
+    <view class="flavour {{item.show?'back_active':''}}" data-index="{{index}}" catchtap="onTapRooms">
+      <text class="{{item.show?'word_active':''}}">{{item.room}}</text>
+    </view>
+  </block>
+</view>
+</view>
+<view hidden="{{rightselected}}" class="placeholder"></view>
+<view hidden="{{rightselected}}" class="selectRoom">
+
+<view class="prompt">
+  <view class="label">
+    <text class="labeltxt">请选择你想要的标签</text>
+  </view>
+  <view class="cancel" catchtap="onTapRightCancel">
+    <image class="ico" wx:if="{{nothingr}}" src="cloud://soya-fzu-rice-0grey0qla568ff6f.736f-soya-fzu-rice-0grey0qla568ff6f-1314877683/images/Close_Circle.png"></image>
+      <image class="ico" wx:else src="cloud://soya-fzu-rice-0grey0qla568ff6f.736f-soya-fzu-rice-0grey0qla568ff6f-1314877683/images/wx_icon_submit.png"></image>
+  </view>
+</view>
+<view class="whois">
+  <block wx:for="{{foods}}" wx:for-item="item" wx:key='*this'>
+    <view class="flavour {{item.show?'back_active':''}}" data-index="{{index}}" catchtap="onTapFoods">
+      <text class="{{item.show?'word_active':''}}">{{item.word}}</text>
+    </view>
+  </block>
+</view>
+</view>

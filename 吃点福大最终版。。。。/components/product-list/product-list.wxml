@@ -1,0 +1,68 @@
+<view class="product-list">
+    <view class="list_item">
+        <view class="item_img">
+          <block wx:if="{{productType == 'like'}}">
+            <image src="{{item.data.store[0].photo}}"></image>
+            </block>
+            <block wx:else>
+              <image src="{{item.data.photo}}"></image>
+            <!-- <image src="{{item.data.store[0].photo}}"></image> -->
+              </block>
+        </view>
+        <view class="list_item_details">
+            <view class="details_text">
+                <view class="title">
+                  <block wx:if="{{productType == 'like'}}">
+                  {{item.data.Food[0].name}}
+                    </block>
+                    <block wx:else>
+                      {{item.data.name}}
+                    </block>
+                </view>
+                <view class="shopName">
+                    <block wx:if="{{productType == 'like'}}">
+                    {{item.data.store[0].name}}
+                        </block>
+                        <block wx:else>
+                          <!-- {{item.data.sort}} -->
+                        </block>
+                </view>
+                <view class="address">
+                  <block wx:if="{{productType == 'like'}}">
+                    {{item.data.store[0].address}}
+                    </block>
+                    <block wx:else>
+                      {{item.data.address}}
+                    </block>
+                </view>
+            </view>
+            <view class="fraction">
+                <view class="fraction_text">
+                评分
+                </view>
+                <view class="fraction_img" bindtap="handleClick">
+                <block wx:if="{{productType == 'like'}}">
+                    <image wx:if="{{!item.liked}}" src='cloud://soya-fzu-rice-0grey0qla568ff6f.736f-soya-fzu-rice-0grey0qla568ff6f-1314877683/images/love.png'></image>
+                    <image wx:if="{{item.liked}}" src='cloud://soya-fzu-rice-0grey0qla568ff6f.736f-soya-fzu-rice-0grey0qla568ff6f-1314877683/images/love1.png'></image>
+                </block>
+                <block wx:if="{{productType == 'collect'}}">
+                    <image wx:if="{{!item.liked}}" src="cloud://soya-fzu-rice-0grey0qla568ff6f.736f-soya-fzu-rice-0grey0qla568ff6f-1314877683/images/star.png"></image>
+                    <image wx:if="{{item.liked}}" src="cloud://soya-fzu-rice-0grey0qla568ff6f.736f-soya-fzu-rice-0grey0qla568ff6f-1314877683/images/star1.png"></image>
+                </block>
+                </view>
+            </view>
+        </view>
+        <view class="close" bindtap='deleteClick'>
+            <image src="/images/Close_Circle.png"></image>
+        </view>
+    </view>
+    <!-- tabs -->
+    <view class="tabs_box">
+        <block wx:if="{{productType == 'like'}}">
+        <view class="tabs_item" wx:for="{{item.data.tedian}}">{{item.tagname}}</view>
+          </block>
+          <block wx:else>
+            {{item.data.sort}}
+          </block>
+    </view>
+</view>

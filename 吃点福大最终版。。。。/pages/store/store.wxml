@@ -1,0 +1,49 @@
+<!--pages/restaurant/restaurant.wxml-->
+
+<view  class="card-container">
+  <view class="cards">
+    <view class="card">
+      <text class="txtname">店名：{{list[0].Bussiness[0].name}}</text>
+    </view>
+    <view class="card">
+      <text class="txtaddress">地址：{{list[0].Bussiness[0].address}}</text>
+    </view>
+    <view class="socre">
+      <text class="txtsocre">评分：{{list[0].Bussinessvalue[0].value}}</text>
+    </view>
+  </view>
+  
+  <view class="card-pic">
+    <image class="imgcard" mode="aspectFill" src="{{datas.imgcard}}"/>
+  </view>
+</view>
+<view class="restaurantContainer">
+  <view class="category">
+    <view class="wholeCategory" catchtap="onTapAll">
+      <text class="txtWhole">全部</text>
+    </view>
+    <block wx:for="{{list}}" wx:for-item="item" wx-key='*this'>
+      <view class="categoryItem {{item.show?'back_active':''}}"
+      data-index="{{index}}" catchtap="onTapItem">
+        <text class="txtItem">{{item.word}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="dishes">
+    <block wx:for="{{list}}" wx:for-item="item" wx-key='*this' data-index='{{index}}'>
+      <view class="dishContainer">
+        <view class="dish">
+          <view class="dishName">
+            <text class="txtName">菜名:{{item.Foods[0].name}}</text>
+          </view>
+          <view class="dishPrice">
+            <text class="txtprice">价格:￥{{item.Foods[0].price}}元</text>
+          </view>
+        </view>
+      <view class="grade" catchtap="onTapGrade" data-dishid='{{item.Foods[0].id}}'>
+        <text class="txtgrade">分数：{{item.Food_Value[0].value}}></text>
+      </view>
+      </view>
+    </block>
+  </view>
+</view>

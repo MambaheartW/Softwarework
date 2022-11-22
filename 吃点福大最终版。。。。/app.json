@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/select_1/select_1",
+    "pages/index/selectstore/selectstore",
+    "pages/index/select_3/select_3",
+    "pages/index/select_3/select_3 result/select_3 result",
+    "pages/index/search/search",
+    "pages/select/select",
+    "pages/mine/mine",
+    "pages/mine/like/like",
+    "pages/mine/collect/collect",
+    "pages/mine/feedback/feedback",
+    "pages/mine/addtag/index",
+    "pages/dish/dish",
+    "pages/dish/score/score",
+    "pages/store/store",
+    "pages/logs/logs",
+    "pages/w_test/w_test",
+    "pages/mine/userDetail/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#E9B080",
+    "navigationBarTitleText": "吃点福大",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "DE8F27",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/home1.png",
+        "iconPath": "images/home.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/Options1.png",
+        "iconPath": "images/Options.png",
+        "pagePath": "pages/select/select",
+        "text": "筛选"
+      },
+      {
+        "selectedIconPath": "images/user1.png",
+        "iconPath": "images/user.png",
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  }
+}
